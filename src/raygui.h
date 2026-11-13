@@ -1624,7 +1624,9 @@ static Vector3 ConvertRGBtoHSV(Vector3 rgb);                    // Convert color
 
 static void GuiTooltip(Rectangle controlRec);                   // Draw tooltip using control rec position
 static int GuiScrollBar(Rectangle bounds, int value, int minValue, int maxValue); // Scroll bar control, used by GuiScrollPanel()
+#if defined(RAYGUI_FONT_ICONS_BAKING)
 static int GuiFontIconBaking(Image *imFont, Font font, Rectangle *whiteRec); // Update font image atlas to append raygui icons
+#endif
 
 static Color GuiFade(Color color, float alpha); // Fade color by an alpha factor
 
@@ -6019,6 +6021,7 @@ static int GuiScrollBar(Rectangle bounds, int value, int minValue, int maxValue)
 }
 
 // Update font image atlas to append raygui icons
+#if defined(RAYGUI_FONT_ICONS_BAKING)
 static int GuiFontIconBaking(Image *imFont, Font font, Rectangle *whiteRec)
 {
     int iconOffsetY = 0;
@@ -6101,6 +6104,7 @@ static int GuiFontIconBaking(Image *imFont, Font font, Rectangle *whiteRec)
 
     return iconOffsetY;
 }
+#endif // RAYGUI_FONT_ICONS_BAKING
 
 // Split controls text into multiple strings
 // NOTE: Re-used by GuiToggleSlider(), GuiComboBox(), GuiDropdownBox(), GuiListView(), GuiMessageBox(), GuiInputBox()

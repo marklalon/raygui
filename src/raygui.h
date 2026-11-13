@@ -6117,7 +6117,7 @@ static char **GuiTextSplit(const char *text, char delimiter, int *count)
         #define RAYGUI_TEXTSPLIT_MAX_ITEMS          128
     #endif
     #if !defined(RAYGUI_TEXTSPLIT_MAX_TEXT_SIZE)
-        #define RAYGUI_TEXTSPLIT_MAX_TEXT_SIZE     1024     // WARNING: Max expected size for all concat items
+        #define RAYGUI_TEXTSPLIT_MAX_TEXT_SIZE     16384    // WARNING: Max expected size for all concat items
     #endif
 
     static char *itemPtrs[RAYGUI_TEXTSPLIT_MAX_ITEMS] = { 0 }; // String pointers array (points to buffer data)
